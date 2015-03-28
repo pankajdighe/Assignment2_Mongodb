@@ -1,6 +1,7 @@
 package demo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -118,12 +119,14 @@ public class PollCotroller {
 			 {
 				Moderator m = moderator_repo.findOne(moderatorId);
 				if (m != null) {
-					p = new Poll("POLL" + (poll_repo.count()+1),
+					Date date=new Date();
+					String count_string =Long.toString (date.hashCode(), 36);
+					p = new Poll("P" + count_string+poll_repo.count(),
 							poll.getQuestion(), poll.getStarted_at(),
 							poll.getExpired_at(), poll.getChoice());
 					p.setModerator(m);
 					poll_repo.save(p);
-					System.out.println("Added POLL");
+					System.out.println("Added POLL"+"counter is "+count_string);
 					return new ResponseEntity<Poll>(p, HttpStatus.CREATED);
 				}
 			}
