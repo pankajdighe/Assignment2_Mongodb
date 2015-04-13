@@ -38,7 +38,7 @@ public class PollCotroller {
 	ArrayList moderator_list = new ArrayList();
 	ArrayList poll_list = new ArrayList();
 
-	//Utility utility = new Utility();
+	
 	
 	@Autowired
 	Utility utility;
