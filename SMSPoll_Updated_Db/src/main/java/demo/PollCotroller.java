@@ -125,6 +125,7 @@ public class PollCotroller {
 							poll.getQuestion(), poll.getStarted_at(),
 							poll.getExpired_at(), poll.getChoice());
 					p.setModerator(m);
+					p.setClosed(false);//added code to track closed polls
 					poll_repo.save(p);
 					System.out.println("Added POLL"+"counter is "+count_string);
 					return new ResponseEntity<Poll>(p, HttpStatus.CREATED);

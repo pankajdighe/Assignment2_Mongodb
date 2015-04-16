@@ -29,6 +29,9 @@ public class Poll {
 	@JsonIgnore
 	private Moderator moderator;
 	
+	@JsonIgnore
+	private boolean isClosed;
+	
 	public String getId() {
 		return id;
 	}
@@ -72,6 +75,12 @@ public class Poll {
 	}
 	public void setModerator(Moderator moderator) {
 		this.moderator = moderator;
+	}
+	public boolean isClosed() {
+		return isClosed;
+	}
+	public void setClosed(boolean isClosed) {
+		this.isClosed = isClosed;
 	}
 	public Poll(String id,String question,String started_at,String expired_at,String[] choice){
 		Integer[] result=create_dynamic_array(choice.length);

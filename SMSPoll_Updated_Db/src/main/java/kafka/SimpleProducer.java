@@ -30,7 +30,7 @@ public class SimpleProducer {
 	        producer = new Producer<>(new ProducerConfig(properties));
 	    }
 
-	  /* public static void main(String[] args) {
+	  /*public static void main(String[] args) {
 	        new SimpleProducer();
 	        String topic = "cmpe273-topic";//args[0];
 	        String msg = "pankajdighe77@gmail.com:010123451:Poll Result [Android=100,iPhone=200]";//args[1];

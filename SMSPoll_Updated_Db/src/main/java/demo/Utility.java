@@ -94,7 +94,9 @@ public class Utility {
 			poll=(Poll)poll_list.get(i);
 			if(poll!=null){
 				expired_at=Utility.get_Date_From_String(poll.getExpired_at());
+				
 				 if(date_now.after(expired_at)){
+					 if(!poll.isClosed()){
 		                System.out.println("Poll Expired"+"POLL ID IS "+poll.getId());
 		                message=poll.getModerator().getEmail()+":"+"010123451"+":"+"Poll Result[";
 		                
@@ -108,6 +110,8 @@ public class Utility {
 		                System.out.println("Message is"+message);
 		                messages.add(message);
 		                message="";
+		                poll.setClosed(true);
+		                }
 		            }
 				
 			}
